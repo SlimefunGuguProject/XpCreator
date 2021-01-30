@@ -1,17 +1,17 @@
 ## CHANGE this to the name of your plugin.
-name: SlimefunAddon
+name: XpCreator
 
 ## CHANGE this to your username.
-author: CHANGEME
+author: MuratKabia
 
 ## CHANGE this to a meaninful but short description of your plugin.
-description: A generic Slimefun4-Addon
+description: XpCreator for Slimefun4
 
 ## CHANGE this to the path of the class that extends JavaPlugin.
-main: me.CHANGEME.slimefunaddon.ExampleAddon
+main: io.github.muratkabia.xpcreator.XpCreator
 
 ## You can change this to link to your website or repository. You can also remove this line if you want to.
-website: https://github.com/Slimefun/Addon-Template
+website: https://github.com/muratkabia/XpCreator
 
 ## This value is automatically replaced by the version specified in your pom.xml file.
 ## Do not change this.
