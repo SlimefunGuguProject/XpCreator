@@ -23,9 +23,10 @@ public class XPCreatorItem extends SlimefunItem {
         addItemHandler(blockUseHandler);
     }
 
-    private void onBlockRightClick(PlayerRightClickEvent event){
+    private void onBlockRightClick(PlayerRightClickEvent event) {
         Player target = event.getPlayer();
-        if (hasAmount(Material.DIAMOND, target.getInventory(), 1)){
+        Inventory targetInventory = target.getInventory();
+        if (targetInventory.containsAtLeast(new ItemStack(Material.DIAMOND), 1)) {
             target.getInventory().remove(Material.DIAMOND);
             target.giveExp(2000);
             target.sendMessage("&cXP Creator &7>> &aYour xp has been given in an exchange of an diamond");
@@ -33,19 +34,6 @@ public class XPCreatorItem extends SlimefunItem {
             target.sendMessage("&cXP Creator &7>> &4You do not have the required item for xp. You need an diamond in your inventory. Now because you tried toı fool the gods, you will be punished!");
             target.setFireTicks(10 * 20);
         }
-    }
-
-    public boolean hasAmount(Material mat, Inventory inv, int amt){
-
-        int invamt = 0;
-
-        for (ItemStack i : inv) {
-            if(i.getType() == mat){
-                invamt = invamt + i.getAmount();
-            }
-        }
-
-        return invamt >= amt;
     }
 
 }
