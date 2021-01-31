@@ -1,6 +1,7 @@
 package io.github.muratkabia.xpcreator;
 
 import io.github.muratkabia.xpcreator.items.XPCreatorItem;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -29,14 +30,21 @@ public class XpCreator extends JavaPlugin implements SlimefunAddon {
         NamespacedKey categoryId = new NamespacedKey(this, "xp_creator");
         Category category = new Category(categoryId, categoryItem);
 
-        SlimefunItemStack xpcreator = new SlimefunItemStack("XP_CREATOR", Material.PLAYER_HEAD, "&7XP Creator", "","&7Made by MuratKabia");
-        ItemStack[] xpcreatorrecipe = {new ItemStack(Material.EMERALD), null, new ItemStack(Material.DIAMOND),
-                null, new ItemStack(Material.BELL), null,
-                null, new ItemStack(Material.BELL), null
+        SlimefunItemStack xpcreator = new SlimefunItemStack("XP_CREATOR", "955f241fe5ac449a8f9be19489372c5e", "&cXP Creator", "","&7Made by MuratKabia");
+        SlimefunItemStack godPiece = new SlimefunItemStack("GOD_PIECE", "fd539892f22846caabd75ee7dbd7a901", "&aGod Piece", "&7Crafting Material", "&7Made by MuratKabia");
+        ItemStack[] xpcreatorrecipe = {new ItemStack(Material.DIAMOND), new ItemStack(Material.BELL), new ItemStack(Material.DIAMOND),
+                new ItemStack(Material.BELL), godPiece, new ItemStack(Material.BELL),
+                new ItemStack(Material.DIAMOND), new ItemStack(Material.BELL), new ItemStack(Material.DIAMOND)
+        };
+        ItemStack[] godPiecerecipe = {new ItemStack(Material.DIAMOND), new ItemStack(Material.EMERALD), new ItemStack(Material.DIAMOND),
+                new ItemStack(Material.EMERALD), new ItemStack(Material.ENCHANTING_TABLE), new ItemStack(Material.DIAMOND),
+                new ItemStack(Material.DIAMOND), new ItemStack(Material.EMERALD), new ItemStack(Material.DIAMOND)
         };
 
         XPCreatorItem xpCreatorItem = new XPCreatorItem(category, xpcreator, RecipeType.ENHANCED_CRAFTING_TABLE, xpcreatorrecipe);
+        SlimefunItem godPieceItem = new SlimefunItem(category, godPiece, RecipeType.ANCIENT_ALTAR, godPiecerecipe);
         xpCreatorItem.register(this);
+        godPieceItem.register(this);
     }
 
     @Override
