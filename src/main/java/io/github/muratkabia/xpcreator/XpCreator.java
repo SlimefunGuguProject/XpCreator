@@ -30,18 +30,18 @@ public class XpCreator extends JavaPlugin implements SlimefunAddon {
         NamespacedKey categoryId = new NamespacedKey(this, "xp_creator");
         Category category = new Category(categoryId, categoryItem);
 
-        SlimefunItemStack xpcreator = new SlimefunItemStack("XP_CREATOR", "955f241fe5ac449a8f9be19489372c5e", "&cXP Creator", "","&7Made by MuratKabia");
-        SlimefunItemStack godPiece = new SlimefunItemStack("GOD_PIECE", "fd539892f22846caabd75ee7dbd7a901", "&aGod Piece", "&7Crafting Material", "&7Made by MuratKabia");
+        SlimefunItemStack xpcreator = new SlimefunItemStack("XP_CREATOR", "87d885b32b0dd2d6b7f1b582a34186f8a5373c46589a273423132b448b803462", "&cXP Creator", "","&7Made by MuratKabia");
+        SlimefunItemStack godPiece = new SlimefunItemStack("GOD_PIECE", "fc8b1f6bbb0e2a1a9e08b4346dfaa61a3949436c792f54308a48a80e5f9d829a", "&aGod Piece", "&7Crafting Material", "&7Made by MuratKabia");
         ItemStack[] xpcreatorrecipe = {new ItemStack(Material.DIAMOND), new ItemStack(Material.BELL), new ItemStack(Material.DIAMOND),
                 new ItemStack(Material.BELL), godPiece, new ItemStack(Material.BELL),
                 new ItemStack(Material.DIAMOND), new ItemStack(Material.BELL), new ItemStack(Material.DIAMOND)
         };
         ItemStack[] godPiecerecipe = {new ItemStack(Material.DIAMOND), new ItemStack(Material.EMERALD), new ItemStack(Material.DIAMOND),
-                new ItemStack(Material.EMERALD), new ItemStack(Material.ENCHANTING_TABLE), new ItemStack(Material.DIAMOND),
+                new ItemStack(Material.EMERALD), new ItemStack(Material.ENCHANTING_TABLE), new ItemStack(Material.EMERALD),
                 new ItemStack(Material.DIAMOND), new ItemStack(Material.EMERALD), new ItemStack(Material.DIAMOND)
         };
 
-        XPCreatorItem xpCreatorItem = new XPCreatorItem(category, xpcreator, RecipeType.ENHANCED_CRAFTING_TABLE, xpcreatorrecipe);
+        XPCreatorItem xpCreatorItem = new XPCreatorItem(category, xpcreator, RecipeType.ANCIENT_ALTAR, xpcreatorrecipe);
         SlimefunItem godPieceItem = new SlimefunItem(category, godPiece, RecipeType.ANCIENT_ALTAR, godPiecerecipe);
         xpCreatorItem.register(this);
         godPieceItem.register(this);

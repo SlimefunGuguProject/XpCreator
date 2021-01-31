@@ -26,10 +26,7 @@ public class XPCreatorItem extends SlimefunItem {
 
     private void onItemRightClick(PlayerRightClickEvent event) {
         Player target = event.getPlayer();
-        if (target.getInventory().contains(Material.DIAMOND)){
-            target.getInventory().remove(new ItemStack(Material.DIAMOND, 1));
-            target.giveExp(1000);
-        }
+        target.giveExp(5);
     }
 
 }
