@@ -9,9 +9,9 @@ import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class XPCreator extends SlimefunItem {
+public class XPCreatorItem extends SlimefunItem {
 
-    public XPCreator(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe){
+    public XPCreatorItem(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe){
         super(category, item, recipeType, recipe);
     }
 
