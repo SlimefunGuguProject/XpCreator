@@ -1,7 +1,7 @@
 package io.github.muratkabia.xpcreator.items;
 
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
@@ -19,20 +19,15 @@ public class XPCreatorItem extends SlimefunItem {
 
     @Override
     public void preRegister() {
-        BlockUseHandler blockUseHandler = this::onBlockRightClick;
-        addItemHandler(blockUseHandler);
+        ItemUseHandler itemUseHandler = this::onItemRightClick;
+        addItemHandler(itemUseHandler);
     }
 
-    private void onBlockRightClick(PlayerRightClickEvent event) {
+    private void onItemRightClick(PlayerRightClickEvent event) {
         Player target = event.getPlayer();
-        Inventory targetInventory = target.getInventory();
-        if (targetInventory.containsAtLeast(new ItemStack(Material.DIAMOND), 1)) {
+        if (target.getInventory().contains(Material.DIAMOND)){
             target.getInventory().remove(Material.DIAMOND);
-            target.giveExp(2000);
-            target.sendMessage("&cXP Creator &7>> &aYour xp has been given in an exchange of an diamond");
-        } else {
-            target.sendMessage("&cXP Creator &7>> &4You do not have the required item for xp. You need an diamond in your inventory. Now because you tried toı fool the gods, you will be punished!");
-            target.setFireTicks(10 * 20);
+            target.giveExp(1000);
         }
     }
 
