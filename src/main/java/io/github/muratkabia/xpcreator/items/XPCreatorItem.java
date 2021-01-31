@@ -30,7 +30,7 @@ public class XPCreatorItem extends SlimefunItem {
         Player target = event.getPlayer();
         Location targetLocation = target.getLocation();
         ExperienceOrb orb = targetLocation.getWorld().spawn(targetLocation, ExperienceOrb.class);
-        orb.setExperience(1);
+        orb.setExperience(5);
     }
 
 }
