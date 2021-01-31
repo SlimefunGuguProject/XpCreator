@@ -1,6 +1,7 @@
 package io.github.muratkabia.xpcreator.items;
 
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
@@ -19,14 +20,14 @@ public class XPCreatorItem extends SlimefunItem {
 
     @Override
     public void preRegister() {
-        ItemUseHandler itemUseHandler = this::onItemRightClick;
+        BlockUseHandler itemUseHandler = this::onItemRightClick;
         addItemHandler(itemUseHandler);
     }
 
     private void onItemRightClick(PlayerRightClickEvent event) {
         Player target = event.getPlayer();
         if (target.getInventory().contains(Material.DIAMOND)){
-            target.getInventory().remove(Material.DIAMOND);
+            target.getInventory().remove(new ItemStack(Material.DIAMOND, 1));
             target.giveExp(1000);
         }
     }
