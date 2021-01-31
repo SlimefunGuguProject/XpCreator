@@ -6,7 +6,9 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class XPCreatorItem extends SlimefunItem {
@@ -23,7 +25,27 @@ public class XPCreatorItem extends SlimefunItem {
 
     private void onBlockRightClick(PlayerRightClickEvent event){
         Player target = event.getPlayer();
-        target.setFireTicks(5 * 20);
+        if (hasAmount(Material.DIAMOND, target.getInventory(), 1)){
+            target.getInventory().remove(Material.DIAMOND);
+            target.giveExp(2000);
+            target.sendMessage("&cXP Creator &7>> &aYour xp has been given in an exchange of an diamond");
+        } else {
+            target.sendMessage("&cXP Creator &7>> &4You do not have the required item for xp. You need an diamond in your inventory. Now because you tried toı fool the gods, you will be punished!");
+            target.setFireTicks(10 * 20);
+        }
+    }
+
+    public boolean hasAmount(Material mat, Inventory inv, int amt){
+
+        int invamt = 0;
+
+        for (ItemStack i : inv) {
+            if(i.getType() == mat){
+                invamt = invamt + i.getAmount();
+            }
+        }
+
+        return invamt >= amt;
     }
 
 }

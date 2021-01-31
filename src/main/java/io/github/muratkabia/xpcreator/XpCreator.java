@@ -29,7 +29,7 @@ public class XpCreator extends JavaPlugin implements SlimefunAddon {
         NamespacedKey categoryId = new NamespacedKey(this, "xp_creator");
         Category category = new Category(categoryId, categoryItem);
 
-        SlimefunItemStack xpcreator = new SlimefunItemStack("XP Creator", Material.PLAYER_HEAD, "&7XP creator made by MuratKabia");
+        SlimefunItemStack xpcreator = new SlimefunItemStack("XP_CREATOR", Material.PLAYER_HEAD, "&7XP Creator", "","&7Made by MuratKabia");
         ItemStack[] xpcreatorrecipe = {new ItemStack(Material.EMERALD), null, new ItemStack(Material.DIAMOND),
                 null, new ItemStack(Material.BELL), null,
                 null, new ItemStack(Material.BELL), null
